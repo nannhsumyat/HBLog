@@ -7,6 +7,8 @@ Route::get('/detail/{id}', [App\Http\Controllers\FrontController::class, 'detail
 
 Route::group(['prefix' => 'backend', 'as' => 'backend.'], function(){
     Route::get('/', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
+    Route::resource('posts', App\Http\Controllers\Admin\PostController::class);
+    Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
     });
 Auth::routes();
 
